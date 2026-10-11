@@ -1,0 +1,5 @@
+# Model submissions
+
+| Model | Edition | Decision Index | Complete results | Engine / commit | Hardware | Declared limits |
+|---|---|---:|---|---|---|---|
+| [MORJ 1.0.1](https://github.com/ALERIA-ML/MORJ/tree/a6d929e) (`google/gemma-4-31B-it` @ `842da37`, BF16, stock weights; no training) | 0.3 | 60.24 | [scores.json](https://huggingface.co/datasets/Aleria-AI/morj-decision-index/blob/5c180e5b036588806c107a46b1b9978b354d8473/runs/morj-1.0.1-compacted/scores.json) (interim: compacted after the run, see the dataset card; a clean `--compact` rerun will replace it) | the kit's `http` engine (`model=morj-1.0.1`), kit `9eb2dbe`, unmodified runner, against MORJ's `/v1/systemone` server from [ALERIA-ML/MORJ](https://github.com/ALERIA-ML/MORJ/tree/a6d929e) @ `a6d929e` (Docker on TensorRT-LLM 1.3.0rc29, every setting at its default: effort `high`, BF16) | One NVIDIA RTX PRO 6000 Blackwell Server Edition 96 GB; one server, one sequential client | Up to 255 options per question and 65,536 tokens per branch; larger requests are refused with HTTP 422 (recorded by the kit as errors), nothing is truncated; no public request reaches either limit |
