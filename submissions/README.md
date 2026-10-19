@@ -1,0 +1,5 @@
+# Model submissions
+
+| Model | Edition | Decision Index | Complete results | Engine / commit | Hardware | Declared limits |
+|---|---|---:|---|---|---|---|
+| [Aleria Judge 1.1.1](https://github.com/ALERIA-ML/aleria-judge/tree/ed2fcb1) (`google/gemma-4-31B-it` @ `842da37`, BF16, stock weights; no training) | 0.3 | 63.46 | [scores.json](https://huggingface.co/datasets/Aleria-AI/aleria-judge-1.1.1-decision-index/blob/1be39e127521ac0a9d4d80037771378033b611bf/runs/aleria-judge-1.1.1-text/scores.json) | the kit's `http` engine (`model=gemma-4-31b-trt`, `--compact`), kit `f5a6e4f`, unmodified runner, against Aleria Judge's `/v1/systemone` server from [ALERIA-ML/aleria-judge](https://github.com/ALERIA-ML/aleria-judge/tree/ed2fcb1) @ `ed2fcb1` (tag `v1.1.1`; Docker, every setting at its default: lean engine, effort `high`, BF16) | One NVIDIA RTX PRO 6000 Blackwell Server Edition 96 GB; one server, one sequential client | Up to 255 options per question and 131,072 tokens per branch; larger requests are refused with HTTP 422 (recorded by the kit as errors), nothing is truncated; every public request fits |
